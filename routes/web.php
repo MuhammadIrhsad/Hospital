@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/',[HomeController::class,'redirectPage']);
 Route::get('/home',[HomeController::class,'view']);
+Route::get('/add_doctor_view',[AdminHomeController::class,'add_view'])->name('admin.add_doctor');
+Route::post('/upload_doctor',[AdminHomeController::class,'upload'])->name('admin.upload_doctor');
+
+
 
 Route::middleware([
     'auth:sanctum',
