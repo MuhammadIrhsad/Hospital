@@ -12,14 +12,40 @@ class AdminHomeController extends Controller
         return view('admin.add_doctor');
     }
     public function upload(Request $req){
-        $image=$req->doctor_image;
-        $name=$req->name;
-        $phone=$req->phone;
-        $speciality=$req->speciality;
-        $room=$req->room;
+        // $req->validate([
+        //     'name' => 'required',
+        //     'phone' => 'required',
+        //     'room' => 'required|email',
+        //     'doctor_image' => 'required',
+           
 
-        print_r($req->all());
-        die;
+
+        // ]);
+
+        // $image=$req['doctor_image'];
+        // $Doctor_image=time().'.'.$image->getClientorginalExtention();
+        // $name=$req['name'];
+        // $phone=$req
+        // ];
+        // $speciality=$req->speciality;
+        // $room=$req->room;
+        $doctor=new Doctor();
+        $doctor->name=$req['name'];
+        $doctor->phone=$req['phone'];
+        $doctor->speciality=$req['speciality'];
+        $doctor->room=$req['room'];
+        $doc_Image=time().'.'.$req['doctor_image']->getClientoriginalExtension();
+        $doc=$req['doctor_image']->move('doctorImage',$doc_Image);
+        $doctor->image=$doc;
+        $doctor->save();
+        // $message="Doctor Added successfully...!";
+        // $data=compact('message');
+        // print_r($data);
+        // die;
+       return redirect()->back()->with('message',"Doctor Added Successfully..!");
+
+        
 
     }
+    
 }

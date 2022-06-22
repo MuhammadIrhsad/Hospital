@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../assets/css/theme.css">
 </head>
 
+
 <body>
 
     <!-- Back to top button -->
@@ -88,6 +89,9 @@
                         </li>
                         @if (Route::has('login'))
                             @auth
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary  text-light"  href="{{route('user.myappointment')}}">MyAppointments</a>
+                            </li>
                             <x-app-layout>
                             </x-app-layout>
                             @else
@@ -105,7 +109,16 @@
             </div> <!-- .container -->
         </nav>
     </header>
-
+    @if (session()->has('msg'))
+                                  
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{session()->get('msg')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+    </div>
+    
+    
+    
+    @endif
     <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
         <div class="hero-section">
             <div class="container text-center wow zoomIn">

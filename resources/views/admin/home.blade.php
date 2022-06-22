@@ -39,26 +39,34 @@
 
         @include('admin.navbar')
         <!-- partial -->
+
+
+
         <div class="container-fluid page-body-wrapper">
+            
             <div class="container d-flex align-items-center justify-content-center">
-                <div class="row d-flex align-items-center justify-content-center">
+                <div class="row d-flex flex-column align-items-center justify-content-center">
                     <div class="col-12 col-md-6">
-                        <form  action="{{route('admin.upload_doctor')}}" class="row g-3 text-light" enctype="multipart/form-data" method="POST">
-                          @csrf
+
+                        {{-- add Doctor Form --}}
+
+                        <form action="{{ route('admin.upload_doctor') }}" class="row g-3 text-light"
+                            enctype="multipart/form-data" method="POST">
+                            @csrf
                             <div class="col-md-6">
                                 <label for="doctor_name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control rounded bg-light"
+                                <input type="text" name="name" class="form-control rounded bg-light text-dark"
                                     id="doctor_name">
                             </div>
                             <div class="col-md-6">
                                 <label for="doctor_phone" class="form-label ">Phone</label>
-                                <input type="text" name="phone" class="form-control rounded bg-light"
+                                <input type="text" name="phone" class="form-control rounded bg-light text-dark"
                                     id="doctor_phone">
                             </div>
                             <div class="col-12">
                                 <label for="speciality" class="form-label">Speciality</label>
-                                <select id="speciality" class="form-select bg-light">
-                                    <option selected>---select---</option>
+                                <select id="speciality" name="speciality" class="form-select bg-light text-dark">
+                                    <option>---select---</option>
                                     <option value="Heart">Heart</option>
                                     <option value="Nose">Nose</option>
                                     <option value="Eye">Eye</option>
@@ -67,16 +75,32 @@
                             </div>
                             <div class="col-12">
                                 <label for="room_no" class="form-label">Room No</label>
-                                <input type="text" name="room" class="form-control rounded bg-light"
+                                <input type="text" name="room" class="form-control rounded text-dark bg-light"
                                     id="room_no" placeholder="Apartment, studio, or floor">
                             </div>
                             <div class="col-12">
                                 <label for="doctor_image" class="form-label">Doctor Image</label>
-                                <input class="form-control rounded  bg-light" name='doctor_image' type="file"
+                                <input class="form-control rounded bg-light text-dark" name='doctor_image' type="file"
                                     id="doctor_image">
+
+                                {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else. --}}
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-success  px-3">Sign in</button>
+                            <div class="col-2">
+
+                                <button type="submit" class=" m-4 btn-sm btn-danger">Add Doctor</button>
+                            </div>
+                            <div class="col-10">
+                              @if (session()->has('message'))
+                                  
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        {{session()->get('message')}}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                                    </div>
+                                  
+                                  
+
+                              @endif
                             </div>
                         </form>
                     </div>
