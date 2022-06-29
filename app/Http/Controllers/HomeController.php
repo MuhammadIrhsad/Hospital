@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Appointment;
 use PhpParser\Node\Expr\FuncCall;
 
 use function Ramsey\Uuid\v1;
@@ -54,8 +54,18 @@ class HomeController extends Controller
         return redirect()->back()->with('msg','Your appointment is successfully send, we contact you soon...!');
     }
     public function myappoitment(){
-        $id=Auth::id();
-        $appointments=Appointment::where('user_id',$id)->get();
-     return view('user.myappointment',compact('appointments'));   
+        if(Auth::id()){
+            $id=Auth::id();
+            $appointments=Appointment::where('user_id',$id)->get();
+         return view('user.myappointment',compact('appointments'));   
+        
+        }
+        else{
+            return redirect()->back();
+        }
+       }
+    public function delete($appoint_id){
+    Appointment::where('id',$appoint_id)->delete();
+    return redirect()->back();
     }
 }

@@ -19,12 +19,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/',[HomeController::class,'redirectPage']);
-Route::get('/home',[HomeController::class,'view']);
+Route::get('/home',[HomeController::class,'view'])->name('home');
 Route::get('/add_doctor_view',[AdminHomeController::class,'add_view'])->name('admin.add_doctor');
 Route::post('/upload_doctor',[AdminHomeController::class,'upload'])->name('admin.upload_doctor');
 Route::get('/get_doctor',[AdminHomeController::class,'get_doctor'])->name('admin.get_doctor');
 Route::post('/appointment',[HomeController::class,'appointment'])->name('user.appointment');
 Route::get('/myappointment',[HomeController::class,'myappoitment'])->name('user.myappointment');
+Route::get('/deleteappointment/{id}',[HomeController::class,'delete']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
