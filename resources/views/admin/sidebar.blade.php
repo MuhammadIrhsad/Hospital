@@ -105,14 +105,14 @@
         </a>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="pages/icons/mdi.html">
+        <a class="nav-link" href="{{route('admin.appointments')}}">
           <span class="menu-icon">
             <i class="mdi mdi-contacts"></i>
           </span>
-          <span class="menu-title">Icons</span>
+          <span class="menu-title">Appointments</span>
         </a>
       </li>
-      <li class="nav-item menu-items">
+      {{-- <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
           <span class="menu-icon">
             <i class="mdi mdi-security"></i>
@@ -129,7 +129,7 @@
             <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
           </ul>
         </div>
-      </li>
+      </li> --}}
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{route('admin.add_doctor')}}">
           <span class="menu-icon">

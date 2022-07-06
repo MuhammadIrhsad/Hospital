@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 
+use function Ramsey\Uuid\v1;
+
 class AdminHomeController extends Controller
 {
     public function add_view(){
@@ -46,6 +48,9 @@ class AdminHomeController extends Controller
 
         
 
+    }
+    public function show_appointments(){
+        return view('admin.appointments');
     }
     
 }

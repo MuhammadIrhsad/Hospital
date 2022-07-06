@@ -23,6 +23,7 @@ Route::get('/home',[HomeController::class,'view'])->name('home');
 Route::get('/add_doctor_view',[AdminHomeController::class,'add_view'])->name('admin.add_doctor');
 Route::post('/upload_doctor',[AdminHomeController::class,'upload'])->name('admin.upload_doctor');
 Route::get('/get_doctor',[AdminHomeController::class,'get_doctor'])->name('admin.get_doctor');
+Route::get('/showappointments',[AdminHomeController::class,'show_appointments'])->name('admin.appointments');
 Route::post('/appointment',[HomeController::class,'appointment'])->name('user.appointment');
 Route::get('/myappointment',[HomeController::class,'myappoitment'])->name('user.myappointment');
 Route::get('/deleteappointment/{id}',[HomeController::class,'delete']);

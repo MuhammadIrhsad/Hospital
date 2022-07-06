@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>All Appointmenst</title>
     <!-- plugins:css -->
     @include('admin.css')
 </head>
@@ -42,9 +42,35 @@
 
 
 
-        <div class="container-fluid page-body-wrapper">
+        <div class="container page-body-wrapper">
             
-        @include('admin.body')
+            <div class="py-4 container">
+                <table class="table table-transparent table-striped table-hover table-bordered table-sm table-responsive-sm">
+                    <thead class="p-5">
+                        <tr>
+                            <th class='p-3' scope="col">Doctor Name</th>
+                            <th class='p-3' scope="col">Date</th>
+                            <th class='p-3' scope="col">Message</th>
+                            <th class='p-3' scope="col">Status</th>
+                            <th class='p-3' scope="col">Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody class='p-4'>
+                        {{-- @foreach ($appointments as $appoint)
+                            <tr>
+                                <td class="p-2">{{ $appoint->doctor }}</td>
+                                <td class="p-2">{{ $appoint->date }}</th>
+                                <td class="p-2">{{ $appoint->message }}</td>
+                                <td class="p-2">{{ $appoint->status }}</td>
+                                <td class="p-2"><a class="btn btn-danger"
+                                        onclick="return confirm('Do you really want to delete ?')"
+                                        href="{{ url('deleteappointment') }}/{{ $appoint->id }}">Cancel</a></td>
+                            </tr>
+                        @endforeach --}}
+        
+                    </tbody>
+                </table>
+            </div>
             <!-- partial -->
 
             <!-- main-panel ends -->

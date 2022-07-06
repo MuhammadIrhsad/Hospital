@@ -127,7 +127,6 @@
                         <td class="p-2">{{ $appoint->doctor }}</td>
                         <td class="p-2">{{ $appoint->date }}</th>
                         <td class="p-2">{{ $appoint->message }}</td>
-
                         <td class="p-2">{{ $appoint->status }}</td>
                         <td class="p-2"><a class="btn btn-danger"
                                 onclick="return confirm('Do you really want to delete ?')"
